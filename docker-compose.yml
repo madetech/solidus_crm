@@ -1,0 +1,27 @@
+web:
+  build: ./
+  command: ./dev.sh
+  volumes:
+    - .:/app
+  volumes_from:
+    - bundle
+  ports:
+    - "3001:3000"
+  links:
+    - db
+  environment:
+    DATABASE_HOST: db
+    MYSQL_USER: root
+    MYSQL_PASSWORD: root
+
+bundle:
+  image: busybox
+  volumes:
+    - /bundle
+
+db:
+  image: mysql:5.5
+  ports:
+    - "13306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: root

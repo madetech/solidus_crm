@@ -1,0 +1,69 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.example.com/order
+    body:
+      encoding: UTF-8
+      string: '{"ok":"go"}'
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Cache-Control:
+      - max-age=604800
+      Content-Type:
+      - text/html
+      Date:
+      - Fri, 28 Oct 2016 23:45:19 GMT
+      Expires:
+      - Fri, 04 Nov 2016 23:45:19 GMT
+      Server:
+      - EOS (lax004/2816)
+      Content-Length:
+      - '452'
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n<!DOCTYPE html PUBLIC
+        \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n         \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html
+        xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n\t<head>\n\t\t<title>404
+        - Not Found</title>\n\t</head>\n\t<body>\n\t\t<h1>404 - Not Found</h1>\n\t\t<script
+        type=\"text/javascript\" src=\"http://gp1.wpc.edgecastcdn.net/00222B/jtest/beacontest.js\"></script>\n\t</body>\n</html>\n"
+    http_version: 
+  recorded_at: Thu, 27 Oct 2016 10:43:14 GMT
+- request:
+    method: post
+    uri: http://www.example.com/order
+    body:
+      encoding: UTF-8
+      string: '{"ok":"go"}'
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Cache-Control:
+      - max-age=604800
+      Content-Type:
+      - text/html
+      Date:
+      - Fri, 28 Oct 2016 23:54:59 GMT
+      Expires:
+      - Fri, 04 Nov 2016 23:54:59 GMT
+      Server:
+      - EOS (lax004/280C)
+      Content-Length:
+      - '466'
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n<!DOCTYPE html PUBLIC
+        \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n         \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html
+        xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n\t<head>\n\t\t<title>404
+        - Not Found</title>\n\t</head>\n\t<body>\n\t\t<h1>404 - Not Found</h1>\n\t\t<script
+        type=\"text/javascript\" src=\"http://gp1.wpc.edgecastcdn.net/00222B/beluga/pilot_rtm/beluga_beacon.js\"></script>\n\t</body>\n</html>\n"
+    http_version: 
+  recorded_at: Thu, 27 Oct 2016 10:52:55 GMT
+recorded_with: VCR 3.0.1
