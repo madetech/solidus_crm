@@ -14,7 +14,8 @@ module SolidusCrm
             template,
             view_path: view_path,
             scope: view_context
-          )
+          ),
+          headers
         )
       end
 
@@ -26,6 +27,10 @@ module SolidusCrm
 
       def endpoint
         '/orders'
+      end
+
+      def headers
+        {}
       end
     end
   end
