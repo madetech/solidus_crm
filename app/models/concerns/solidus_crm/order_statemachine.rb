@@ -9,7 +9,7 @@ module SolidusCrm
     end
 
     def update_crm
-      Spree::CrmConfig.crm_order_emitter_class.new(self, self.state).emit
+      Spree::CrmConfig.crm_order_emitter_class.new(self, state).emit
     end
   end
 end

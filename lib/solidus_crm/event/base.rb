@@ -18,10 +18,8 @@ module SolidusCrm
       end
 
       def view_path
-        Spree::Api::Engine.root.join('app','views')
+        Spree::Api::Engine.root.join('app', 'views')
       end
-
-      private
 
       class ViewContext
         include Singleton

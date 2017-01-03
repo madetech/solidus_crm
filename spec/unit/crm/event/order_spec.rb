@@ -6,7 +6,6 @@ describe SolidusCrm::Event::Order do
   subject { described_class.new(order, event) }
 
   context 'when the order event is emitted' do
-
     before do
       expect(connection).to receive(:post)
       stub_const('SolidusCrm::Connection', connection)

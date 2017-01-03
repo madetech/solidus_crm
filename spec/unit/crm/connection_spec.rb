@@ -5,7 +5,7 @@ describe SolidusCrm::Connection do
     subject do
       described_class.post(
         '/order',
-        {ok: 'go'}.to_json
+        { ok: 'go' }.to_json
       )
     end
 

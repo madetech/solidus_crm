@@ -7,7 +7,6 @@ module SolidusCrm
 
       base_uri Spree::CrmConfig.crm_endpoint
 
-
       def self.perform(endpoint, body, headers)
         post(endpoint, body: body, headers: headers)
       end
