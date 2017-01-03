@@ -17,8 +17,10 @@ module SolidusCrm
     module_function
 
     def post(endpoint, body, headers = {})
+      post_headers = headers.merge(Spree::CrmConfig.crm_request_headers)
+
       process_response(
-        SolidusCrm::Connection::Post.perform(endpoint, body, headers)
+        SolidusCrm::Connection::Post.perform(endpoint, body, post_headers)
       )
     rescue *CONNECTION_ERRORS => error
       Rails.logger.info(error)

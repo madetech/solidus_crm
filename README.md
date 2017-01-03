@@ -19,11 +19,12 @@ bundle exec rails g solidus_crm:install
 
 Configuration
 -------------
-The default values for `endpoint`, `crm_order_emitter_class`, `crm_shipment_emitter_class` and are preferences which are by default are set to:
+The default values for `crm_endpoint`, `crm_request_headers`, `crm_order_emitter_class`, `crm_shipment_emitter_class` and are preferences which are by default are set to:
 
 | Preference                   | Default           |
 |------------------------------|-------------------|
-| `endpoint`                   |                   |
+| `crm_endpoint`               | `''`              |
+| `crm_request_headers`        | `{}`              |
 | `crm_order_emitter_class`    | Crm::Event::Order |
 | `crm_shipment_emitter_class` | Crm::Event::Order |
 

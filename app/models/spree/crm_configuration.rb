@@ -11,5 +11,10 @@ module Spree
     def crm_shipment_emitter_class
       @crm_shipment_emitter_class ||= SolidusCrm::Event::Order
     end
+
+    attr_writer :crm_request_headers
+    def crm_request_headers
+      @crm_request_headers ||= {}
+    end
   end
 end
