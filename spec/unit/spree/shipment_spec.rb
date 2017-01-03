@@ -1,10 +1,10 @@
 describe Spree::Shipment do
   let!(:order) { create(:order_ready_to_ship) }
-  let(:event_emitter) { instance_double('Crm::Event::Order') }
+  let(:event_emitter) { instance_double('SolidusCrm::Event::Order') }
 
   before do
     expect(event_emitter).to receive(:emit).and_return(true)
-    allow(Crm::Event::Order).to receive(:new) {
+    allow(SolidusCrm::Event::Order).to receive(:new) {
       event_emitter
     }
   end

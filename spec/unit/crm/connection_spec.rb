@@ -1,4 +1,4 @@
-describe Crm::Connection do
+describe SolidusCrm::Connection do
   subject { described_class }
 
   context 'when the CRM is posted data' do

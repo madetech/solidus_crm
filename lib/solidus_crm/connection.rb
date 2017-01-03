@@ -1,6 +1,6 @@
 require 'httparty'
 
-module Crm
+module SolidusCrm
   module Connection
     class Post
       include HTTParty
@@ -19,7 +19,7 @@ module Crm
 
     def post(endpoint, body, headers = {})
       process_response(
-        Crm::Connection::Post.perform(endpoint, body, headers)
+        SolidusCrm::Connection::Post.perform(endpoint, body, headers)
       )
     rescue *CONNECTION_ERRORS => error
       Rails.logger.info(error)

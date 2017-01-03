@@ -1,6 +1,6 @@
 require 'cancancan'
 
-module Crm
+module SolidusCrm
   module Event
     class Base < AbstractController::Base
       include AbstractController::Rendering
@@ -25,7 +25,7 @@ module Crm
 
       class ViewContext
         include Singleton
-        include Spree::Api::ApiHelpers
+        include ::Spree::Api::ApiHelpers
 
         mattr_reader :current_ability
 

@@ -1,4 +1,4 @@
-module Crm
+module SolidusCrm
   module Event
     class Order < Base
       def initialize(order, event)
@@ -7,7 +7,7 @@ module Crm
       end
 
       def emit
-        Crm::Connection.post(
+        SolidusCrm::Connection.post(
           endpoint,
           Rabl::Renderer.json(
             @order,

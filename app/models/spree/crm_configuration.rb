@@ -4,12 +4,12 @@ module Spree
 
     attr_writer :crm_order_emitter_class
     def crm_order_emitter_class
-      @crm_order_emitter_class ||= Crm::Event::Order
+      @crm_order_emitter_class ||= SolidusCrm::Event::Order
     end
 
     attr_writer :crm_shipment_emitter_class
     def crm_shipment_emitter_class
-      @crm_shipment_emitter_class ||= Crm::Event::Order
+      @crm_shipment_emitter_class ||= SolidusCrm::Event::Order
     end
   end
 end
