@@ -33,6 +33,8 @@ module SolidusCrm
     def process_response(response)
       if response.code != 200
         Rails.logger.info("Bad response from CRM, got #{response.code} not 200")
+
+        Rails.logger.info("Failed because: #{response.body}")
       end
     end
   end
