@@ -1,18 +1,35 @@
-require 'httparty'
+require 'net/http'
+require 'uri'
 
 module SolidusCrm
   module Connection
     class Post
-      include HTTParty
-
-      base_uri Spree::CrmConfig.crm_endpoint
-
       def self.perform(endpoint, body, headers)
-        post(endpoint, body: body, headers: headers)
+        uri = URI.parse("#{Spree::CrmConfig.crm_endpoint}#{endpoint}")
+
+        request = Net::HTTP::Post.new(uri)
+
+        if headers.keys.include?('Context-Type')
+          request.content_type = headers.slice('Context-Type')
+        end
+
+        headers.except('Context-Type').each do |header, value|
+          request[header] = value
+        end
+
+        request.body = body
+
+        req_options = { use_ssl: uri.scheme == 'https' }
+
+        response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+          http.request(request)
+        end
+
+        response
       end
     end
 
-    CONNECTION_ERRORS = [HTTParty::Error, Errno::ECONNREFUSED]
+    CONNECTION_ERRORS = [Net::HTTPError, Errno::ECONNREFUSED]
 
     module_function
 
@@ -31,7 +48,9 @@ module SolidusCrm
     module_function
 
     def process_response(response)
-      if response.code != 200
+      if [201, 200].include?(response.code.to_i)
+        Rails.logger.info("CRM notification successful")
+      else
         Rails.logger.info("Bad response from CRM, got #{response.code} not 200")
 
         Rails.logger.info("Failed because: #{response.body}")
