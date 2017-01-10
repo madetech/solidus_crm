@@ -10,7 +10,7 @@ module SolidusCrm
         request = Net::HTTP::Post.new(uri)
 
         if headers.keys.include?('Context-Type')
-          request.content_type = headers.slice('Context-Type')
+          request.content_type = headers.slice('Context-Type').values.first
         end
 
         headers.except('Context-Type').each do |header, value|
