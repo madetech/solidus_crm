@@ -28,7 +28,10 @@ module SolidusCrm
 
       Spree::Order.include(SolidusCrm::OrderStatemachine)
       Spree::Order.prepend(SolidusCrm::PreventOrderEmails)
+
       Spree::OrderShipping.prepend(SolidusCrm::PreventOrderCartonEmail)
+
+      Spree::Reimbursement.prepend(SolidusCrm::ReimbursementEvent)
     end
 
     config.to_prepare(&method(:activate).to_proc)
