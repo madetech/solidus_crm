@@ -1,6 +1,7 @@
 module Spree
   class CrmConfiguration < Preferences::Configuration
     preference :crm_endpoint, :string, default: ''
+    preference :deliver_mailers, :boolean, default: true
 
     attr_writer :crm_order_emitter_class
     def crm_order_emitter_class
