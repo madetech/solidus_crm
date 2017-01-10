@@ -55,6 +55,7 @@ RSpec.configure do |config|
   # After each spec clean the database.
   config.after :each do
     DatabaseCleaner.clean
+    ActionMailer::Base.deliveries.clear
   end
 
   config.fail_fast = ENV['FAIL_FAST'] || false
