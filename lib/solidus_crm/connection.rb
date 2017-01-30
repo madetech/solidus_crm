@@ -36,6 +36,8 @@ module SolidusCrm
     def post(endpoint, body, headers = {})
       post_headers = headers.merge(Spree::CrmConfig.crm_request_headers)
 
+      Rails.logger.info('CRM Request Payload: ' + body)
+
       process_response(
         SolidusCrm::Connection::Post.perform(endpoint, body, post_headers)
       )
@@ -49,7 +51,7 @@ module SolidusCrm
 
     def process_response(response)
       if [201, 200].include?(response.code.to_i)
-        Rails.logger.info("CRM notification successful")
+        Rails.logger.info('CRM notification successful')
       else
         Rails.logger.info("Bad response from CRM, got #{response.code} not 200")
       end
