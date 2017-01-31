@@ -20,9 +20,8 @@ module SolidusCrm
 
       require 'solidus_crm/connection'
 
-      Dir.glob(File.join(File.dirname(__FILE__), 'event/**/*.rb')) do |c|
-        Rails.configuration.cache_classes ? require(c) : load(c)
-      end
+      require 'solidus_crm/event/base'
+      require 'solidus_crm/event/order'
 
       Spree::Shipment.include(SolidusCrm::ShipmentStatemachine)
 

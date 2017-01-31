@@ -21,11 +21,12 @@ describe SolidusCrm::Connection do
         "Bad response from CRM, got 403 not 200"
       end
 
-      before do
+      it 'should log the payload and an error response' do
+        expect(Rails.logger).to receive(:info).with("CRM Request Payload: {\"ok\":\"go\"}")
         expect(Rails.logger).to receive(:info).with(expected_log)
       end
 
-      it 'should log an error response' do
+      after do
         subject
       end
     end
