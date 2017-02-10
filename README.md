@@ -1,6 +1,10 @@
 SolidusCrm
 ==========
 
+[![Build Status](https://travis-ci.org/madetech/solidus_crm.svg?branch=master)](https://travis-ci.org/madetech/solidus_crm)
+
+============
+
 Installation
 ------------
 
