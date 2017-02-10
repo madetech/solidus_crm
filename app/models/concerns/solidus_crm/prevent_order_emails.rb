@@ -3,13 +3,13 @@ module SolidusCrm
     extend ActiveSupport::Concern
 
     def deliver_order_confirmation_email
-      return unless Spree::CrmConfig.deliver_mailers
+      return unless Spree::CrmConfig.deliver_mailers.permitted?(self)
 
       super
     end
 
     def send_cancel_email
-      return unless Spree::CrmConfig.deliver_mailers
+      return unless Spree::CrmConfig.deliver_mailers.permitted?(self)
 
       super
     end

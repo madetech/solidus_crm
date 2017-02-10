@@ -10,7 +10,7 @@ describe Spree::Reimbursement do
   context 'SolidusCrm::ReimbursementEvent#reimbursement_email' do
     context do
       before do
-        Spree::CrmConfig.deliver_mailers = deliver_mailers
+        allow(Spree::CrmConfig.deliver_mailers).to receive(:permitted?).and_return(deliver_mailers)
         reimbursement.send_reimbursement_email
       end
 

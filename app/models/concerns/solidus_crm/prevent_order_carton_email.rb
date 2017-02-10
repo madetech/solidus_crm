@@ -5,7 +5,7 @@ module SolidusCrm
     private
 
     def send_shipment_emails(carton)
-      return unless Spree::CrmConfig.deliver_mailers
+      return unless Spree::CrmConfig.deliver_mailers.permitted?(carton.orders.first)
 
       super(carton)
     end
