@@ -22,5 +22,10 @@ module Spree
     def crm_request_headers
       @crm_request_headers ||= {}
     end
+
+    attr_writer :deliver_mailers
+    def deliver_mailers
+      @deliver_mailers ||= lambda { |order| true }
+    end
   end
 end

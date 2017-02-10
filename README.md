@@ -21,12 +21,13 @@ Configuration
 -------------
 The default values for `crm_endpoint`, `crm_request_headers`, `crm_order_emitter_class`, `crm_shipment_emitter_class` and are preferences which are by default are set to:
 
-| Preference                   | Default           |
-|------------------------------|-------------------|
-| `crm_endpoint`               | `''`              |
-| `crm_request_headers`        | `{}`              |
-| `crm_order_emitter_class`    | Crm::Event::Order |
-| `crm_shipment_emitter_class` | Crm::Event::Order |
+| Preference                   | Default                   |
+|------------------------------|---------------------------|
+| `crm_endpoint`               | `''`                      |
+| `crm_request_headers`        | `{}`                      |
+| `crm_order_emitter_class`    | Crm::Event::Order         |
+| `crm_shipment_emitter_class` | Crm::Event::Order         |
+| `deliver_mailers`            | `lambda { |order| true }` |
 
 To override these defaults set them in `config/initializers/spree.rb` e.g.
 
@@ -35,6 +36,8 @@ Spree::CrmConfig[:endpoint] = 'https://www.my-super-crm.com'
 ```
 
 Setting the endpoint is required.
+
+`deliver_mailers` accepts the order as an argument, so you can assign it to a Lambda to perform more complex logic if you wish.
 
 Testing
 -------

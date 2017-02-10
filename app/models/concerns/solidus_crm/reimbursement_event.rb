@@ -5,7 +5,7 @@ module SolidusCrm
     def send_reimbursement_email
       Spree::CrmConfig.crm_reimbursement_emitter_class.new(order, order.state).emit
 
-      return unless Spree::CrmConfig.deliver_mailers
+      return unless Spree::CrmConfig.deliver_mailers[order]
 
       super
     end
