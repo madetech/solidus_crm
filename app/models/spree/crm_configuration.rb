@@ -25,7 +25,7 @@ module Spree
 
     attr_writer :deliver_mailers
     def deliver_mailers
-      @deliver_mailers ||= lambda { |order| true }
+      @deliver_mailers ||= lambda { |_order| true }
     end
   end
 end
