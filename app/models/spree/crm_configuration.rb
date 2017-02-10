@@ -1,7 +1,6 @@
 module Spree
   class CrmConfiguration < Preferences::Configuration
     preference :crm_endpoint, :string, default: ''
-    preference :deliver_mailers, :boolean, default: true
 
     attr_writer :crm_order_emitter_class
     def crm_order_emitter_class
@@ -23,9 +22,9 @@ module Spree
       @crm_request_headers ||= {}
     end
 
-    attr_writer :deliver_mailers
+    attr_writer :deliver_mailers_class
     def deliver_mailers
-      @deliver_mailers ||= lambda { |_order| true }
+      @deliver_mailers_class ||= SolidusCrm::DeliverMailers
     end
   end
 end

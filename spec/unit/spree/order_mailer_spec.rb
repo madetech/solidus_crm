@@ -3,7 +3,7 @@ describe 'built in solidus mailers are prevented' do
 
   before do
     stub_const('SolidusCrm::Connection', double.as_null_object)
-    Spree::CrmConfig.deliver_mailers = deliver_mailers
+    allow(Spree::CrmConfig.deliver_mailers).to receive(:permitted?).and_return(deliver_mailers)
   end
 
   subject { ActionMailer::Base.deliveries }

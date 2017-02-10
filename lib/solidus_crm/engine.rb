@@ -19,6 +19,7 @@ module SolidusCrm
       end
 
       require 'solidus_crm/connection'
+      require 'solidus_crm/deliver_mailers'
 
       require 'solidus_crm/event/base'
       require 'solidus_crm/event/order'
