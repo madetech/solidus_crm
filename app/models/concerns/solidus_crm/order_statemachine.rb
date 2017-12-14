@@ -4,7 +4,7 @@ module SolidusCrm
 
     included do
       state_machine do
-        after_transition to: [:canceled, :complete], do: :update_crm
+        after_transition to: %i[delivery payment canceled complete], do: :update_crm
       end
     end
 
