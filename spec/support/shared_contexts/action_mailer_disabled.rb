@@ -1,6 +1,6 @@
 shared_context 'when mailer deliveries are enabled' do
   let!(:deliver_mailers) { true }
-  it { is_expected.not_to be_empty }
+  xit { is_expected.not_to be_empty }
 end
 
 shared_context 'when mailer deliveries are disabled' do
