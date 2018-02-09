@@ -1,4 +1,4 @@
-FROM madetech/rails-deps
+FROM ruby:2.3.0
 
 RUN mkdir -p /app
 WORKDIR /app

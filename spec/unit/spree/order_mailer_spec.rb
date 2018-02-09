@@ -6,6 +6,7 @@ describe 'built in solidus mailers are prevented' do
     allow(Spree::CrmConfig.deliver_mailers).to receive(:permitted?).and_return(deliver_mailers)
   end
 
+  around { |example| perform_enqueued_jobs(&example) }
   subject { ActionMailer::Base.deliveries }
 
   context 'SolidusCrm::PreventOrderEmails#confirm_email' do
