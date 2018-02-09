@@ -14,6 +14,7 @@ require 'solidus_crm/factories'
 RSpec.configure do |config|
   config.include Spree::Api::TestingSupport::Helpers, type: :controller
   config.include Spree::Api::TestingSupport::Setup, type: :controller
+  config.include ActiveJob::TestHelper
   config.include Spree::TestingSupport::Preferences
   config.include Spree::TestingSupport::UrlHelpers
   config.include Spree::TestingSupport::ControllerRequests, type: :controller

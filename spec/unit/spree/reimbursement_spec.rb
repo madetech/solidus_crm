@@ -5,6 +5,7 @@ describe Spree::Reimbursement do
     stub_const('SolidusCrm::Connection', double.as_null_object)
   end
 
+  around { |example| perform_enqueued_jobs(&example) }
   subject { ActionMailer::Base.deliveries }
 
   context 'SolidusCrm::ReimbursementEvent#reimbursement_email' do

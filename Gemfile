@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'solidus', github: 'solidusio/solidus', branch: 'v1.2'
-# Provides basic authentication functionality for testing parts of your engine
-gem 'solidus_auth_devise', '~> 1.0'
+gem 'solidus_core', '2.3.0'
+gem 'solidus_api', '2.3.0'
+gem 'solidus_auth_devise', '2.0.0'
 
 gemspec

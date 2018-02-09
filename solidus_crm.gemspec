@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir['test/**/*']
 
   s.add_dependency 'solidus_core', '2.3.0'
+  s.add_dependency 'solidus_api', '2.3.0'
   s.add_dependency 'httparty', '~> 0.13.7'
 
   s.add_development_dependency 'byebug', '8.2.1'
