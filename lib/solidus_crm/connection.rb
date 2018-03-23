@@ -49,9 +49,12 @@ module SolidusCrm
 
     module_function
 
-    def process_response(response)
+    def process_response(response, attempts = 0)
       if [201, 200].include?(response.code.to_i)
         Rails.logger.info('CRM notification successful')
+      elsif attempts < 3
+        Rails.logger.info("Bad response from CRM, got #{response.code} not 200, retrying.")
+        process_response(response, attempts++)
       else
         Rails.logger.info("Bad response from CRM, got #{response.code} not 200")
       end
