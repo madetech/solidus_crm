@@ -54,6 +54,7 @@ module SolidusCrm
         Rails.logger.info('CRM notification successful')
       else
         Rails.logger.info("Bad response from CRM, got #{response.code} not 200")
+        Rails.logger.info("Response body was: #{response.body}")
       end
     end
   end
